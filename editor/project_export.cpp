@@ -175,21 +175,28 @@ void ProjectExportDialog::_update_presets() {
 void ProjectExportDialog::_update_export_all() {
 
 	bool can_export = EditorExport::get_singleton()->get_export_preset_count() > 0;
-
+	bool found_preset_error = false;
 	for (int i = 0; i < EditorExport::get_singleton()->get_export_preset_count(); i++) {
 		Ref<EditorExportPreset> preset = EditorExport::get_singleton()->get_export_preset(i);
 		bool needs_templates;
 		String error;
-		if (preset->get_export_path() == "" || !preset->get_platform()->can_export(preset, error, needs_templates)) {
+		if (preset->get_export_path() == "") {
 			can_export = false;
+		}
+		if (!preset->get_platform()->can_export(preset, error, needs_templates) {
+			can_export = false;
+			found_preset_error = true;
 			break;
 		}
 	}
 
 	if (can_export) {
 		export_all_button->set_disabled(false);
+		export_all_button->set_tooltip("");
 	} else {
 		export_all_button->set_disabled(true);
+		String tooltip_text = found_preset_error ? TTR("All presents must be free from errors.") : TTR("All presets must have an export path.")
+		export_all_button->set_tooltip(tooltip_text);
 	}
 }
 
