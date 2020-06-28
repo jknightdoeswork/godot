@@ -884,6 +884,16 @@ bool _Geometry2D::is_polygon_clockwise(const Vector<Vector2> &p_polygon) {
 bool _Geometry2D::is_point_in_polygon(const Point2 &p_point, const Vector<Vector2> &p_polygon) {
 	return Geometry2D::is_point_in_polygon(p_point, p_polygon);
 }
+<<<<<<< HEAD
+=======
+Vector3 _Geometry::barycentric_coordinate(const Vector3 &point, const Vector3 &vertex_a, const Vector3 &vertex_b, const Vector3 &vertex_c) {
+	return Geometry::barycentric_coordinate(point, vertex_a, vertex_b, vertex_c);
+}
+float _Geometry::area_of_triangle(const Vector3 &vertex_a, const Vector3 &vertex_b, const Vector3 &vertex_c) {
+	return Geometry::area_of_triangle(vertex_a, vertex_b, vertex_c);
+}
+Variant _Geometry::ray_intersects_triangle(const Vector3 &p_from, const Vector3 &p_dir, const Vector3 &p_v0, const Vector3 &p_v1, const Vector3 &p_v2) {
+>>>>>>> d124f1969f... Added barycentric_coordinate function to geometry and bound it in core_bind.
 
 Vector<int> _Geometry2D::triangulate_polygon(const Vector<Vector2> &p_polygon) {
 	return Geometry2D::triangulate_polygon(p_polygon);
@@ -1172,7 +1182,18 @@ void _Geometry3D::_bind_methods() {
 
 	ClassDB::bind_method(D_METHOD("get_closest_point_to_segment", "point", "s1", "s2"), &_Geometry3D::get_closest_point_to_segment);
 
+<<<<<<< HEAD
 	ClassDB::bind_method(D_METHOD("get_closest_point_to_segment_uncapped", "point", "s1", "s2"), &_Geometry3D::get_closest_point_to_segment_uncapped);
+=======
+	ClassDB::bind_method(D_METHOD("barycentric_coordinate", "point", "vertex_a", "vertex_b", "vertex_c"), &_Geometry::barycentric_coordinate);
+	ClassDB::bind_method(D_METHOD("area_of_triangle", "vertex_a", "vertex_b", "vertex_c"), &_Geometry::area_of_triangle);
+	ClassDB::bind_method(D_METHOD("ray_intersects_triangle", "from", "dir", "a", "b", "c"), &_Geometry::ray_intersects_triangle);
+	ClassDB::bind_method(D_METHOD("segment_intersects_triangle", "from", "to", "a", "b", "c"), &_Geometry::segment_intersects_triangle);
+	ClassDB::bind_method(D_METHOD("segment_intersects_sphere", "from", "to", "sphere_position", "sphere_radius"), &_Geometry::segment_intersects_sphere);
+	ClassDB::bind_method(D_METHOD("segment_intersects_cylinder", "from", "to", "height", "radius"), &_Geometry::segment_intersects_cylinder);
+	ClassDB::bind_method(D_METHOD("segment_intersects_convex", "from", "to", "planes"), &_Geometry::segment_intersects_convex);
+	ClassDB::bind_method(D_METHOD("point_is_inside_triangle", "point", "a", "b", "c"), &_Geometry::point_is_inside_triangle);
+>>>>>>> d124f1969f... Added barycentric_coordinate function to geometry and bound it in core_bind.
 
 	ClassDB::bind_method(D_METHOD("get_uv84_normal_bit", "normal"), &_Geometry3D::get_uv84_normal_bit);
 

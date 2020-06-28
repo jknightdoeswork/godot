@@ -339,6 +339,8 @@ public:
 	Vector<Vector3> get_closest_points_between_segments(const Vector3 &p1, const Vector3 &p2, const Vector3 &q1, const Vector3 &q2);
 	Vector3 get_closest_point_to_segment(const Vector3 &p_point, const Vector3 &p_a, const Vector3 &p_b);
 	Vector3 get_closest_point_to_segment_uncapped(const Vector3 &p_point, const Vector3 &p_a, const Vector3 &p_b);
+	Vector3 barycentric_coordinate(const Vector3 &point, const Vector3 &vertex_a, const Vector3 &vertex_b, const Vector3 &vertex_c);
+	float area_of_triangle(const Vector3 &vertex_a, const Vector3 &vertex_b, const Vector3 &vertex_c);
 	Variant ray_intersects_triangle(const Vector3 &p_from, const Vector3 &p_dir, const Vector3 &p_v0, const Vector3 &p_v1, const Vector3 &p_v2);
 	Variant segment_intersects_triangle(const Vector3 &p_from, const Vector3 &p_to, const Vector3 &p_v0, const Vector3 &p_v1, const Vector3 &p_v2);
 
