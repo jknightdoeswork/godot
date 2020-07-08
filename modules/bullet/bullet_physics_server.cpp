@@ -76,6 +76,7 @@
 
 void BulletPhysicsServer::_bind_methods() {
 	//ClassDB::bind_method(D_METHOD("DoTest"), &BulletPhysicsServer::DoTest);
+	ClassDB::bind_method(D_METHOD("shape_convex_sweep"), &BulletPhysicsServer::shape_convex_sweep);
 }
 
 BulletPhysicsServer::BulletPhysicsServer() :
@@ -159,6 +160,10 @@ void BulletPhysicsServer::shape_set_margin(RID p_shape, real_t p_margin) {
 	ShapeBullet *shape = shape_owner.get(p_shape);
 	ERR_FAIL_COND(!shape);
 	shape->set_margin(p_margin);
+}
+
+void BulletPhysicsServer::shape_convex_sweep(RID p_shape, Vector3 from, Vector3 to) {
+	return;
 }
 
 real_t BulletPhysicsServer::shape_get_margin(RID p_shape) const {
