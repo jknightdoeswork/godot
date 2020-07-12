@@ -37,7 +37,7 @@
 #ifdef CRASH_HANDLER_EXCEPTION
 
 // Backtrace code code based on: https://stackoverflow.com/questions/6205981/windows-c-stack-trace-from-a-running-app
-
+#include <string>
 #include <psapi.h>
 #include <algorithm>
 #include <iterator>
