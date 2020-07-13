@@ -195,6 +195,14 @@ void BulletPhysicsServer::space_set_active(RID p_space, bool p_active) {
 	}
 }
 
+void BulletPhysicsServer::update_contacts(RID p_space) {
+
+	SpaceBullet *space = space_owner.get(p_space);
+	ERR_FAIL_COND(!space);
+
+	space->update_contacts();
+}
+
 bool BulletPhysicsServer::space_is_active(RID p_space) const {
 	SpaceBullet *space = space_owner.get(p_space);
 	ERR_FAIL_COND_V(!space, false);

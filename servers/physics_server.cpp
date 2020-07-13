@@ -416,6 +416,7 @@ void PhysicsServer::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("space_create"), &PhysicsServer::space_create);
 	ClassDB::bind_method(D_METHOD("space_set_active", "space", "active"), &PhysicsServer::space_set_active);
 	ClassDB::bind_method(D_METHOD("space_is_active", "space"), &PhysicsServer::space_is_active);
+	ClassDB::bind_method(D_METHOD("update_contacts", "space"), &PhysicsServer::update_contacts);
 	ClassDB::bind_method(D_METHOD("space_set_param", "space", "param", "value"), &PhysicsServer::space_set_param);
 	ClassDB::bind_method(D_METHOD("space_get_param", "space", "param"), &PhysicsServer::space_get_param);
 	ClassDB::bind_method(D_METHOD("space_get_direct_state", "space"), &PhysicsServer::space_get_direct_state);

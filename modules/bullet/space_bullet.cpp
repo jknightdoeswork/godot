@@ -565,6 +565,12 @@ void onBulletTickCallback(btDynamicsWorld *p_dynamicsWorld, btScalar timeStep) {
 	}
 }
 
+
+void SpaceBullet::update_contacts() {
+	onBulletPreTickCallback(dynamicsWorld, 0);
+	onBulletTickCallback(dynamicsWorld, 0);
+}
+
 BulletPhysicsDirectSpaceState *SpaceBullet::get_direct_state() {
 	return direct_access;
 }

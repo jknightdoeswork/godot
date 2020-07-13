@@ -264,6 +264,8 @@ public:
 	virtual void space_set_active(RID p_space, bool p_active) = 0;
 	virtual bool space_is_active(RID p_space) const = 0;
 
+	virtual void update_contacts(RID p_space){};
+
 	enum SpaceParameter {
 
 		SPACE_PARAM_CONTACT_RECYCLE_RADIUS,

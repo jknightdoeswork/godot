@@ -105,7 +105,8 @@ public:
 	virtual RID space_create();
 	virtual void space_set_active(RID p_space, bool p_active);
 	virtual bool space_is_active(RID p_space) const;
-
+	virtual void update_contacts(RID p_space);
+	
 	/// Not supported
 	virtual void space_set_param(RID p_space, SpaceParameter p_param, real_t p_value);
 	/// Not supported

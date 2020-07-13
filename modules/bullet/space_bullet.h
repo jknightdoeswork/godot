@@ -118,6 +118,7 @@ public:
 	SpaceBullet();
 	virtual ~SpaceBullet();
 
+	void update_contacts();
 	void flush_queries();
 	real_t get_delta_time() { return delta_time; }
 	void step(real_t p_delta_time);
@@ -180,11 +181,13 @@ public:
 	bool test_body_motion(RigidBodyBullet *p_body, const Transform &p_from, const Vector3 &p_motion, bool p_infinite_inertia, PhysicsServer::MotionResult *r_result, bool p_exclude_raycast_shapes);
 	int test_ray_separation(RigidBodyBullet *p_body, const Transform &p_transform, bool p_infinite_inertia, Vector3 &r_recover_motion, PhysicsServer::SeparationResult *r_results, int p_result_max, float p_margin);
 
+	void check_body_collision();
+
 private:
 	void create_empty_world(bool p_create_soft_world);
 	void destroy_world();
 	void check_ghost_overlaps();
-	void check_body_collision();
+	
 
 	struct RecoverResult {
 		bool hasPenetration;
